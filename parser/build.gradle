@@ -1,6 +1,7 @@
 apply from: './../config.gradle'
 apply plugin: 'java-library'
 apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'maven-publish'
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -16,4 +17,15 @@ kotlin {
 dependencies {
     api dep.javapoet
     api dep.kotlinpoet
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.ansolm'
+            artifactId = 'annotationprocessorparser'
+            version = '0.0.11'
+            from components.java
+        }
+    }
 }
