@@ -22,9 +22,9 @@ dependencies {
 publishing {
     publications {
         release(MavenPublication) {
-            groupId = 'com.ansolm'
+            groupId = 'com.github.ansolm'
             artifactId = 'annotationprocessorparser'
-            version = '0.0.11'
+            version = '0.0.13'
             from components.java
         }
     }
