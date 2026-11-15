@@ -5,12 +5,14 @@ plugins {
 }
 
 android {
-    compileSdk 32
+
+    namespace 'com.ansolm.annotationprocessorparser'
+    compileSdk 37
 
     defaultConfig {
-        applicationId "com.iwdael.annotationprocessorparser"
-        minSdk 16
-        targetSdk 32
+        applicationId "com.ansolm.annotationprocessorparser"
+        minSdk 21
+        targetSdk 37
         versionCode 1
         versionName "1.0"
 
@@ -24,11 +26,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = "17"
     }
 }
 

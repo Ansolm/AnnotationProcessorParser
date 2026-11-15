@@ -1,14 +1,14 @@
 /**
- * author : iwdael
- * e-mail : iwdael@outlook.com
- * project: https://github.com/iwdael/AnnotationProcessorParser
+ * author : ansolm
+ * e-mail : ansolm@outlook.com
+ * project: https://github.com/ansolm/AnnotationProcessorParser
  */
 
-package com.iwdael.annotationprocessorparser.poet
+package com.ansolm.annotationprocessorparser.poet
 
 
-import com.iwdael.annotationprocessorparser.Class
-import com.iwdael.annotationprocessorparser.Parser
+import com.ansolm.annotationprocessorparser.Class
+import com.ansolm.annotationprocessorparser.Parser
 import java.io.File
 
 val mapPoet = mutableMapOf<Int, Parser>()

@@ -1,10 +1,10 @@
 /**
- * author : iwdael
- * e-mail : iwdael@outlook.com
- * project: https://github.com/iwdael/AnnotationProcessorParser
+ * author : ansolm
+ * e-mail : ansolm@outlook.com
+ * project: https://github.com/ansolm/AnnotationProcessorParser
  */
 
-package com.iwdael.annotationprocessorparser
+package com.ansolm.annotationprocessorparser
 
 import java.lang.Class
 import javax.lang.model.element.Element

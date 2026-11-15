@@ -1,13 +1,13 @@
 /**
- * author : iwdael
- * e-mail : iwdael@outlook.com
- * project: https://github.com/iwdael/AnnotationProcessorParser
+ * author : ansolm
+ * e-mail : ansolm@outlook.com
+ * project: https://github.com/ansolm/AnnotationProcessorParser
  */
 
-package com.iwdael.annotationprocessorparser.poet
+package com.ansolm.annotationprocessorparser.poet
 
-import com.iwdael.annotationprocessorparser.*
-import com.iwdael.annotationprocessorparser.Annotation
+import com.ansolm.annotationprocessorparser.*
+import com.ansolm.annotationprocessorparser.Annotation
 import com.squareup.kotlinpoet.*
 import com.squareup.kotlinpoet.jvm.transient
 import com.squareup.kotlinpoet.jvm.volatile
@@ -183,7 +183,7 @@ object KotlinPoet {
     fun Field.asTypeName(): TypeName {
         val parser = this
         return element.asType().asTypeName().asKotlin()
-            .copy(!(annotation.any { it.className.endsWith("NotNull") }
+            .copy(value == null || !(annotation.any { it.className.endsWith("NotNull") }
                     || !parser.className.contains(".")))
     }
 
@@ -233,6 +233,7 @@ object KotlinPoet {
             .stickAnnotation()
             .stickModifier()
             .stickReturn()
+            .stickBody()
             .build()
     }
 
@@ -261,6 +262,13 @@ object KotlinPoet {
 
     fun FunSpec.Builder.stickReturn(): FunSpec.Builder {
         returns(parser().element.returnType.asTypeName().asKotlin())
+        return this
+    }
+
+    fun FunSpec.Builder.stickBody(): FunSpec.Builder {
+        val returnClassName = parser().returnClassName
+        if (returnClassName == "void" || returnClassName == "kotlin.Unit") { return this }
+        addStatement("throw %T()", ClassName("kotlin", "NotImplementedError"))
         return this
     }
 

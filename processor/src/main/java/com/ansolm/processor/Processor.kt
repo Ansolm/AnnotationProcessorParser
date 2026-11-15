@@ -1,8 +1,8 @@
-package com.iwdael.processor
+package com.ansolm.processor
 
 import com.google.auto.service.AutoService
-import com.iwdael.annotations.ParserAnnotation
-import com.iwdael.annotationprocessorparser.Class
+import com.ansolm.annotations.ParserAnnotation
+import com.ansolm.annotationprocessorparser.Class
 import javax.annotation.processing.AbstractProcessor
 import javax.annotation.processing.Processor
 import javax.annotation.processing.RoundEnvironment

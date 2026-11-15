@@ -13,8 +13,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AnnotationProcessorParser"
-//include ':app'
-//include ':processor'
-//include ':annotation'
+include ':app'
+include ':processor'
+include ':annotation'
 include ':parser'
 

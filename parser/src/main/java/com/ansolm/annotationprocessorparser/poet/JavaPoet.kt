@@ -1,13 +1,13 @@
 /**
- * author : iwdael
- * e-mail : iwdael@outlook.com
- * project: https://github.com/iwdael/AnnotationProcessorParser
+ * author : ansolm
+ * e-mail : ansolm@outlook.com
+ * project: https://github.com/ansolm/AnnotationProcessorParser
  */
 
-package com.iwdael.annotationprocessorparser.poet
+package com.ansolm.annotationprocessorparser.poet
 
-import com.iwdael.annotationprocessorparser.*
-import com.iwdael.annotationprocessorparser.Annotation
+import com.ansolm.annotationprocessorparser.*
+import com.ansolm.annotationprocessorparser.Annotation
 import com.squareup.javapoet.*
 
 object JavaPoet {
@@ -105,7 +105,8 @@ object JavaPoet {
 
     fun Field.asFieldBuilder(): FieldSpec.Builder {
         val parser = this
-        return FieldSpec.builder(className.asTypeName(), name)
+        val typeName = className.asTypeName().let { if (parser.value == null && it.isPrimitive) it.box() else it }
+        return FieldSpec.builder(typeName, name)
             .apply {
                 mapPoet[this.hashCode()] = parser
             }
@@ -138,6 +139,7 @@ object JavaPoet {
             .stickAnnotation()
             .stickModifier()
             .stickReturn()
+            .stickBody()
             .build()
     }
 
@@ -166,6 +168,12 @@ object JavaPoet {
 
     fun MethodSpec.Builder.stickReturn(): MethodSpec.Builder {
         returns(parser().returnClassName.asTypeName())
+        return this
+    }
+
+    fun MethodSpec.Builder.stickBody(): MethodSpec.Builder {
+        if (parser().returnClassName == "void") { return this }
+        addStatement("throw new \$T(\$S)", ClassName.get("java.lang", "RuntimeException"), "not implemented")
         return this
     }
 

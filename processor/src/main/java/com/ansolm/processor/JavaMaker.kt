@@ -1,10 +1,10 @@
-package com.iwdael.processor
+package com.ansolm.processor
 
-import com.iwdael.annotationprocessorparser.Class
-import com.iwdael.annotationprocessorparser.poet.JavaPoet.asField
-import com.iwdael.annotationprocessorparser.poet.JavaPoet.asMethod
-import com.iwdael.annotationprocessorparser.poet.JavaPoet.asTypeBuilder
-import com.iwdael.annotationprocessorparser.poet.JavaPoet.stickModifier
+import com.ansolm.annotationprocessorparser.Class
+import com.ansolm.annotationprocessorparser.poet.JavaPoet.asField
+import com.ansolm.annotationprocessorparser.poet.JavaPoet.asMethod
+import com.ansolm.annotationprocessorparser.poet.JavaPoet.asTypeBuilder
+import com.ansolm.annotationprocessorparser.poet.JavaPoet.stickModifier
 import com.squareup.javapoet.JavaFile
 import javax.annotation.processing.Filer
 

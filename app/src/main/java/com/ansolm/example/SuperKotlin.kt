@@ -1,7 +1,7 @@
-package com.iwdael.example
+package com.ansolm.example
 
-import com.iwdael.annotations.FieldAnnotation
-import com.iwdael.annotations.ParserAnnotation
+import com.ansolm.annotations.FieldAnnotation
+import com.ansolm.annotations.ParserAnnotation
 import java.lang.Deprecated
 
 
